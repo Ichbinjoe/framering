@@ -1,8 +1,10 @@
 [package]
 name = "framering"
+description = "Queue-of-queues container"
 version = "0.1.0"
 authors = ["Joe Hirschfeld <joe@ibj.io>"]
 edition = "2018"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
