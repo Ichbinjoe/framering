@@ -35,14 +35,12 @@
 //! Rings (the backing store for frames) can be created using the new method - this creates an
 //! empty ring. Memory isn't allocated until the first frame is created.
 //! ```
-//! # mod framering;
 //! # use ::framering::*;
 //! let ring: FramedRing<i32, Pow2Capacity> = FramedRing::new();
 //! ```
 //!
 //! An initial seed frame can be created using the frame method and have items appended to it...
 //! ```
-//! # mod framering;
 //! # use ::framering::*;
 //! let mut ring = FramedRing::<i32, Pow2Capacity>::new();
 //! let mut frame = ring.frame();
@@ -53,7 +51,6 @@
 //!
 //! ... and other frames can be created after with more elements.
 //! ```
-//! # mod framering;
 //! # use ::framering::*;
 //! let mut ring = FramedRing::<i32, LinearCapacity>::new();
 //!
@@ -136,7 +133,6 @@ pub trait Capacity: Clone + Copy + Default {
 /// # Example
 ///
 /// ```
-/// # mod framering;
 /// # use ::framering::*;
 /// let mut ring = FramedRing::<i32, Pow2Capacity>::with_capacity(Pow2Capacity::Pow2(4));
 /// assert_eq!(ring.capacity(), 16);
@@ -217,7 +213,6 @@ impl Capacity for Pow2Capacity {
 /// # Example
 ///
 /// ```
-/// # mod framering;
 /// # use ::framering::*;
 /// let mut ring = FramedRing::<i32, LinearCapacity>::with_capacity(LinearCapacity{cap: 9});
 /// assert_eq!(ring.capacity(), 9);
@@ -335,7 +330,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<(), LinearCapacity>::new();
     /// ```
@@ -348,7 +342,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::with_capacity(LinearCapacity{cap: 32});
     /// assert_eq!(ring.capacity(), 32);
@@ -368,7 +361,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let mut frame = ring.frame();
@@ -384,7 +376,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let mut frame = ring.frame_reserve(4);
@@ -543,7 +534,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let mut frame = ring.frame();
@@ -597,7 +587,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let mut frame = ring.frame();
@@ -652,7 +641,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::with_capacity(LinearCapacity{cap: 32});
     /// assert_eq!(ring.capacity(), 32);
@@ -669,7 +657,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// # Examples
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let mut frame = ring.frame();
@@ -678,7 +665,6 @@ impl<T, Cap: Capacity> FramedRing<T, Cap> {
     /// assert_eq!(ring.size(), 2);
     /// ```
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let mut frame = ring.frame();
@@ -860,7 +846,6 @@ impl<'ring, T, Cap: Capacity> RingFrame<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
@@ -879,7 +864,6 @@ impl<'ring, T, Cap: Capacity> RingFrame<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
@@ -902,7 +886,6 @@ impl<'ring, T, Cap: Capacity> RingFrame<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
@@ -926,7 +909,6 @@ impl<'ring, T, Cap: Capacity> RingFrame<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
@@ -943,7 +925,6 @@ impl<'ring, T, Cap: Capacity> RingFrame<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
@@ -962,7 +943,6 @@ impl<'ring, T, Cap: Capacity> RingFrame<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
@@ -1007,7 +987,6 @@ impl<'ring, T, Cap: Capacity> RingFrameMut<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let frame = ring.frame();
@@ -1023,7 +1002,6 @@ impl<'ring, T, Cap: Capacity> RingFrameMut<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let frame = ring.frame();
@@ -1073,7 +1051,6 @@ impl<'ring, T, Cap: Capacity> RingFrameMut<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
@@ -1104,7 +1081,6 @@ impl<'ring, T, Cap: Capacity> RingFrameMut<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, LinearCapacity>::new();
     /// let mut frame = ring.frame();
@@ -1125,7 +1101,6 @@ impl<'ring, T, Cap: Capacity> RingFrameMut<'ring, T, Cap> {
     /// # Example
     ///
     /// ```
-    /// # mod framering;
     /// # use ::framering::*;
     /// let mut ring = FramedRing::<i32, Pow2Capacity>::new();
     /// let mut frame = ring.frame();
